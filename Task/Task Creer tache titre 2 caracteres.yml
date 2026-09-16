@@ -1,0 +1,23 @@
+info:
+  name: Task Creer tache titre 2 caracteres
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiTasks}}"
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Ti",
+        "description": "ici description"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

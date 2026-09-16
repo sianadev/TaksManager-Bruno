@@ -1,0 +1,23 @@
+info:
+  name: Login Mail valide et mot de passe incorrect
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiLogin}}"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "{{mailOK}}",
+        "password": "{{passwordKO}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

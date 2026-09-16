@@ -1,0 +1,30 @@
+info:
+  name: Register Mail et mot de passe valides
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiRegister}}"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "{{randomEmail}}",
+        "password": "testpwd" //on considère taille de 6 car.
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        bru.setVar("randomEmail", bru.interpolate("{{$randomEmail}}"));
+        //console.log(bru.getVar("randomEmail"));
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

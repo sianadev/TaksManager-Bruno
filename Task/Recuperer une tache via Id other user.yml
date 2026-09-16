@@ -1,0 +1,19 @@
+info:
+  name: Recuperer une tache via Id other user
+  type: http
+  seq: 10
+
+http:
+  method: GET
+  url: "{{baseURL}}{{apiTasks}}/:id"
+  params:
+    - name: id
+      value: d113eca6-1b84-4b56-b8dd-cb20976f6c2d
+      type: path
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

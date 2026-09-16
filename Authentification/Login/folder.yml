@@ -1,0 +1,12 @@
+info:
+  name: Login
+  type: folder
+  seq: 1
+
+request:
+  auth: inherit
+  variables:
+    - name: mailKO
+      value: false@test.com
+    - name: passwordKO
+      value: falsePassword

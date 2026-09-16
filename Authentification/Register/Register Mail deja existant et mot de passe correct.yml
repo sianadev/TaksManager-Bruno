@@ -1,0 +1,25 @@
+info:
+  name: Register Mail deja existant et mot de passe correct
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiRegister}}"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "{{mailOK}}",
+        "password": "{{passwordOK}}"
+      }
+  auth:
+    type: bearer
+    token: ""
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

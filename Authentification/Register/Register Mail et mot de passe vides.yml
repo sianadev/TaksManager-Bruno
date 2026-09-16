@@ -1,0 +1,32 @@
+info:
+  name: Register Mail et mot de passe vides
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiRegister}}"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "",
+        "password": ""
+      }
+  auth: inherit
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        //bru.setVar("uniqueSuffix", Date.now());
+
+        bru.setVar("randomEmail", bru.interpolate("{{$randomEmail}}"));
+        console.log(bru.getVar("registerEmail"));
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

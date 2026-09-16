@@ -1,0 +1,28 @@
+info:
+  name: Modifier tache existante titre 82 caracteres
+  type: http
+  seq: 13
+
+http:
+  method: PATCH
+  url: "{{baseURL}}{{apiTasks}}/:id"
+  params:
+    - name: id
+      value: 7cbd42b4-1e29-44b7-bd5f-0ae0c2c66a15
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "done": false,
+        "title": "Ceci est un titre. Ceci est un titre. Ceci est un titre. Ceci est un titre. Ceci e",
+        "description": "description modifié"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

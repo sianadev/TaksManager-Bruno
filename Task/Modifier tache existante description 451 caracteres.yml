@@ -1,0 +1,28 @@
+info:
+  name: "Modifier tache existante description 451 caracteres "
+  type: http
+  seq: 18
+
+http:
+  method: PATCH
+  url: "{{baseURL}}{{apiTasks}}/:id"
+  params:
+    - name: id
+      value: 7cbd42b4-1e29-44b7-bd5f-0ae0c2c66a15
+      type: path
+  body:
+    type: json
+    data: |-
+      {
+        "done": false,
+        "title": "titre modifié",
+        "description": "Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Description de test. Descriptio"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

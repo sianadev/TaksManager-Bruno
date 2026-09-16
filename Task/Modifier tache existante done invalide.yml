@@ -1,0 +1,29 @@
+info:
+  name: Modifier tache existante done invalide
+  type: http
+  seq: 19
+
+http:
+  method: PATCH
+  url: "{{baseURL}}{{apiTasks}}/:id"
+  params:
+    - name: id
+      value: 7cbd42b4-1e29-44b7-bd5f-0ae0c2c66a15
+      type: path
+  body:
+    type: json
+    data: |-
+      //format invalide pour l'attribut done
+      {
+        "done": "nothing",
+        "title": "titre modifié",
+        "description": "description modifié"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

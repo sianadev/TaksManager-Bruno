@@ -1,0 +1,23 @@
+name: Test Environment
+variables:
+  - name: baseURL
+    value: https://taskmanager.stl-training.fr
+    description: ""
+  - name: apiLogin
+    value: /api/authentication/login
+    description: ""
+  - name: apiRegister
+    value: /api/authentication/register
+    description: ""
+  - name: apiLogout
+    value: /api/authentication/logout
+    description: ""
+  - name: apiTasks
+    value: /api/tasks
+    description: ""
+  - secret: true
+    name: mailOK
+    description: ""
+  - secret: true
+    name: passwordOK
+    description: ""

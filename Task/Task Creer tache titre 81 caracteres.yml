@@ -1,0 +1,23 @@
+info:
+  name: Task Creer tache titre 81 caracteres
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiTasks}}"
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Ceci est un titre. Ceci est un titre. Ceci est un titre. Ceci est un titre. Ceci ",
+        "description": "ici description"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

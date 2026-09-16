@@ -1,0 +1,23 @@
+info:
+  name: Register Mail format invalide et mot de passe correct
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiRegister}}"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "projet@",
+        "password": "testpwd" //on considère taille de 6 car.
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

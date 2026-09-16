@@ -1,0 +1,23 @@
+info:
+  name: Supprimer une tache existante Id other user
+  type: http
+  seq: 23
+
+http:
+  method: DELETE
+  url: "{{baseURL}}{{apiTasks}}/:id"
+  params:
+    - name: id
+      value: ccce9e75-91ea-4823-9735-2d61025d857f
+      type: path
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

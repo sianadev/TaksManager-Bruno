@@ -1,0 +1,34 @@
+info:
+  name: Task
+  type: folder
+  seq: 2
+
+request:
+  auth: inherit
+  scripts:
+    - type: before-request
+      code: |-
+        try {
+          const email = bru.getEnvVar("mailOK");
+          const password = bru.getEnvVar("passwordOK");
+
+          const res = await bru.sendRequest({
+            method: 'POST',
+            url: 'https://taskmanager.stl-training.fr/api/authentication/login',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            data: {
+              email: email,
+              password: password
+            }
+          });
+
+          console.log("login status:", res.status);
+          console.log("login data:", res.data);
+
+          const token = res.data.token;
+          req.setHeader('Authorization', 'Bearer ' + token);
+        } catch (err) {
+          console.log("ERREUR:", err.response ? err.response.data : err.message);
+        }

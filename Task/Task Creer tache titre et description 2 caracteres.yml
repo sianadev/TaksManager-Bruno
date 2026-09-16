@@ -1,0 +1,23 @@
+info:
+  name: "Task Creer tache titre et description 2 caracteres "
+  type: http
+  seq: 5
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiTasks}}"
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Ti",
+        "description": "de"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,23 @@
+info:
+  name: Login Mail et mot de passe invalides
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiLogin}}"
+  body:
+    type: json
+    data: |-
+      {
+        "email": "{{mailKO}}",
+        "password": "{{passwordKO}}"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,23 @@
+info:
+  name: Task Creer tache description 451 caracteres
+  type: http
+  seq: 6
+
+http:
+  method: POST
+  url: "{{baseURL}}{{apiTasks}}"
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Un titre de test",
+        "description": "ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici description. ici descr"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,23 @@
+info:
+  name: Supprimer une tache invalide
+  type: http
+  seq: 22
+
+http:
+  method: DELETE
+  url: "{{baseURL}}{{apiTasks}}/:id"
+  params:
+    - name: id
+      value: b9c792a3-2c6a-43b-bc85-f92ba323c22c
+      type: path
+  body:
+    type: json
+    data: ""
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
