@@ -10,6 +10,7 @@ http:
     type: json
     data: |-
       //on récupère le token de la req Logout
+      //le token est censé être supprimé
       {
         "title": "Titre de test",
         "description": "description de test"
@@ -22,8 +23,8 @@ runtime:
   scripts:
     - type: tests
       code: |-
-        test("le statut est 201", function () {
-          expect(res.getStatus()).to.equal(201);
+        test("le statut est 401", function () {
+          expect(res.getStatus()).to.equal(401);
         });
 
 settings:
