@@ -1,12 +1,14 @@
 info:
-  name: Logout
+  name: "Refresh "
   type: http
-  seq: 4
+  seq: 3
 
 http:
   method: POST
-  url: "{{baseURL}}{{apiLogout}}"
-  auth: inherit
+  url: "{{baseURL}}/api/authentication/refresh"
+  auth:
+    type: bearer
+    token: "{{refreshToken}}"
 
 runtime:
   scripts:
@@ -31,17 +33,19 @@ runtime:
           console.log("login status:", res.status);
 
           const token = res.data.token;
-          req.setHeader('Authorization', 'Bearer ' + token);
+          const refreshToken = res.data.refreshToken;
+
           bru.setVar("token", token);
-          console.log(token)
+          bru.setVar("refreshToken",refreshToken)
+          
 
         } catch (err) {
           console.log("ERREUR:", err.response ? err.response.data : err.message);
         }
     - type: tests
       code: |-
-        test("le statut est 204", function () {
-          expect(res.getStatus()).to.equal(204);
+        test("le statut est 200", function () {
+          expect(res.getStatus()).to.equal(200);
         });
 
 settings:

@@ -11,6 +11,14 @@ http:
       value: testid
       type: path
 
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("le statut est une erreur (4xx)", function () {
+          expect(res.getStatus()).to.be.within(400, 499);
+        });
+
 settings:
   encodeUrl: true
   timeout: 0

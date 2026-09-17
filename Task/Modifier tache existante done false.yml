@@ -1,17 +1,19 @@
 info:
-  name: Login Mail et mot de passe valides
+  name: Modifier tache existante done false
   type: http
-  seq: 1
+  seq: 20
 
 http:
-  method: POST
-  url: "{{baseURL}}{{apiLogin}}"
+  method: PATCH
+  url: "{{baseURL}}{{apiTasks}}/{{taskId}}"
   body:
     type: json
     data: |-
+      //format invalide pour l'attribut done
       {
-        "email": "{{mailOK}}",
-        "password": "{{passwordOK}}"
+        "done": false,
+        "title": "titre modifié",
+        "description": "description modifié"
       }
   auth: inherit
 

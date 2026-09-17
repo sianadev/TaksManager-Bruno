@@ -1,7 +1,7 @@
 info:
-  name: Login Mail et mot de passe valides
+  name: Login XSS
   type: http
-  seq: 1
+  seq: 5
 
 http:
   method: POST
@@ -11,7 +11,7 @@ http:
     data: |-
       {
         "email": "{{mailOK}}",
-        "password": "{{passwordOK}}"
+        "password": "<script>alert('test');</script>"
       }
   auth: inherit
 
@@ -19,8 +19,8 @@ runtime:
   scripts:
     - type: tests
       code: |-
-        test("le statut est 200", function () {
-          expect(res.getStatus()).to.equal(200);
+        test("le statut est 401", function () {
+          expect(res.getStatus()).to.equal(401);
         });
 
 settings:

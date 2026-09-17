@@ -13,6 +13,15 @@ config:
         username: ""
         password: ""
       bypassProxy: ""
+
+request:
+  scripts:
+    - type: tests
+      code: |-
+        test("le temps de réponse est inférieur à 200ms", function () {
+          const responseTime = res.getResponseTime();
+          expect(responseTime).to.be.below(200);
+        });
 bundled: false
 extensions:
   bruno:

@@ -5,11 +5,36 @@ info:
 
 http:
   method: GET
-  url: "{{baseURL}}{{apiTasks}}/:id"
-  params:
-    - name: id
-      value: 7cbd42b4-1e29-44b7-bd5f-0ae0c2c66a15
-      type: path
+  url: "{{baseURL}}{{apiTasks}}/{{taskId}}"
+
+runtime:
+  scripts:
+    - type: before-request
+      code: |-
+        try {
+          const token = bru.getVar("token");
+
+          const tasksRes = await bru.sendRequest({
+            method: 'GET',
+            url: 'https://taskmanager.stl-training.fr/api/tasks?sort=[{"orderBy":"createdAt","order":"DESC"}]',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + token
+            }
+          });
+
+          const taskId = tasksRes.data.data[0].id;
+          console.log("taskId:", taskId);
+          bru.setVar("taskId", taskId);
+
+        } catch (err) {
+          console.log("ERREUR TASKS:", err.response ? err.response.data : err.message);
+        }
+    - type: tests
+      code: |-
+        test("le statut est 200", function () {
+          expect(res.getStatus()).to.equal(200);
+        });
 
 settings:
   encodeUrl: true

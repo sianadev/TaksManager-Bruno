@@ -25,10 +25,12 @@ request:
           });
 
           console.log("login status:", res.status);
-          console.log("login data:", res.data);
 
           const token = res.data.token;
           req.setHeader('Authorization', 'Bearer ' + token);
+          bru.setVar("token", token);
+          
+
         } catch (err) {
           console.log("ERREUR:", err.response ? err.response.data : err.message);
         }

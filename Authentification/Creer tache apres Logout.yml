@@ -1,5 +1,5 @@
 info:
-  name: "Task Creer tache titre et description 2 caracteres "
+  name: Creer tache apres Logout
   type: http
   seq: 5
 
@@ -9,18 +9,21 @@ http:
   body:
     type: json
     data: |-
+      //on récupère le token de la req Logout
       {
-        "title": "Ti",
-        "description": "de"
+        "title": "Titre de test",
+        "description": "description de test"
       }
-  auth: inherit
+  auth:
+    type: bearer
+    token: "{{token}}"
 
 runtime:
   scripts:
     - type: tests
       code: |-
-        test("le statut est 422", function () {
-          expect(res.getStatus()).to.equal(422);
+        test("le statut est 201", function () {
+          expect(res.getStatus()).to.equal(201);
         });
 
 settings:

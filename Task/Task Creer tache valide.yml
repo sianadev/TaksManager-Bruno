@@ -15,6 +15,14 @@ http:
       }
   auth: inherit
 
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("le statut est 201", function () {
+          expect(res.getStatus()).to.equal(201);
+        });
+
 settings:
   encodeUrl: true
   timeout: 0

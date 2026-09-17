@@ -5,7 +5,19 @@ info:
 
 http:
   method: GET
-  url: "{{baseURL}}{{apiTasks}}"
+  url: '{{baseURL}}{{apiTasks}}?sort=[{"orderBy":"createdAt","order":"DESC"}]'
+  params:
+    - name: sort
+      value: '[{"orderBy":"createdAt","order":"DESC"}]'
+      type: query
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("le statut est 200", function () {
+          expect(res.getStatus()).to.equal(200);
+        });
 
 settings:
   encodeUrl: true

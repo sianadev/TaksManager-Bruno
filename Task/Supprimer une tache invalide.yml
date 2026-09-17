@@ -1,7 +1,7 @@
 info:
   name: Supprimer une tache invalide
   type: http
-  seq: 22
+  seq: 23
 
 http:
   method: DELETE
@@ -14,6 +14,14 @@ http:
     type: json
     data: ""
   auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("le statut est en erreur (4xx)", function () {
+          expect(res.getStatus()).to.be.within(400, 499);
+        });
 
 settings:
   encodeUrl: true

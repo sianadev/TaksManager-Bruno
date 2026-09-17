@@ -1,7 +1,7 @@
 info:
   name: Supprimer une tache existante Id other user
   type: http
-  seq: 23
+  seq: 24
 
 http:
   method: DELETE
@@ -14,6 +14,14 @@ http:
     type: json
     data: ""
   auth: inherit
+
+runtime:
+  scripts:
+    - type: tests
+      code: |-
+        test("le statut est 422", function () {
+          expect(res.getStatus()).to.equal(422);
+        });
 
 settings:
   encodeUrl: true

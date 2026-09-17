@@ -21,6 +21,11 @@ runtime:
       code: |-
         bru.setVar("randomEmail", bru.interpolate("{{$randomEmail}}"));
         //console.log(bru.getVar("randomEmail"));
+    - type: tests
+      code: |-
+        test("le statut est 204", function () {
+          expect(res.getStatus()).to.equal(204);
+        });
 
 settings:
   encodeUrl: true
