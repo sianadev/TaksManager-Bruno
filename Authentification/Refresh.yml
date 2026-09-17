@@ -5,7 +5,7 @@ info:
 
 http:
   method: POST
-  url: "{{baseURL}}/api/authentication/refresh"
+  url: "{{baseURL}}{{apiiRefresh}}"
   auth:
     type: bearer
     token: "{{refreshToken}}"

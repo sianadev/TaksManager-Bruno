@@ -12,12 +12,13 @@ variables:
   - name: apiLogout
     value: /api/authentication/logout
     description: ""
+  - name: apiiRefresh
+    value: /api/authentication/refresh
+    description: ""
   - name: apiTasks
     value: /api/tasks
     description: ""
   - secret: true
     name: mailOK
-    description: ""
   - secret: true
     name: passwordOK
-    description: ""
