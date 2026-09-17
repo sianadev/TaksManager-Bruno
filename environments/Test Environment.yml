@@ -12,7 +12,7 @@ variables:
   - name: apiLogout
     value: /api/authentication/logout
     description: ""
-  - name: apiiRefresh
+  - name: apiRefresh
     value: /api/authentication/refresh
     description: ""
   - name: apiTasks
